@@ -1,0 +1,25 @@
+.text{
+  animation: rainbowDash 5s ease-in 2s infinite;
+  transform-origin: left top;
+}
+
+@keyframes rainbowDash {
+  0%{
+    color: red;
+    font-size: 20px;
+  }
+  25%{
+    color: orange;
+  }
+  50%{
+    color: yellow;
+    font-size: 50px;
+  }
+  75%{
+    color: green;
+  }
+  100%{
+    color: blue;
+    font-size: 20px;
+  }
+}
