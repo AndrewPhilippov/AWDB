@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  flex-wrap: wrap;
+
+}
+
+.box{
+  height: 200px;
+  background-color: #c51a70;
+  padding: 20px;
+  color: #fff;
+  flex: 1 250px;
+  transition: background-color .2s;
+}
+
+.box:hover{
+  background-color: #9c0e55;
+}
+
+.middle{
+  background-color: #b51a70;
+}
+
+.heading{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  font-weight: 100;
+}
