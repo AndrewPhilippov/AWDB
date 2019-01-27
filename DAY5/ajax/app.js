@@ -2,6 +2,7 @@ var XHR = new XMLHttpRequest();
 
 var url = 'https://api.github.com/zen';
 
+
 XHR.onreadystatechange = function(){
   if(XHR.readyState === 4){
     if(XHR.status === 200){
