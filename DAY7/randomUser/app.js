@@ -1,14 +1,14 @@
-UIDisplay = {
-  userImg: document.querySelector('.user__image'),
-  userTitle: document.querySelector('.user__title'),
-  userName: document.querySelector('.user__name'),
-  userNic: document.querySelector('.user__nic'),
-  userEmail: document.querySelector('.user__email'),
-  userCity: document.querySelector('.user__city')
+var UIDisplay = {
+  userImg:    document.querySelector('.user__image'),
+  userTitle:  document.querySelector('.user__title'),
+  userEmail:  document.querySelector('.user__email'),
+  userName:   document.querySelector('.user__name'),
+  userCity:   document.querySelector('.user__city'),
+  userNic:    document.querySelector('.user__nic')
 }
 
-UICtrlr = {
-  btn: document.querySelector('.btn')
+var UICtrlr = {
+  btn:      document.querySelector('.btn')
 }
 
 var url = 'https://randomuser.me/api';
@@ -37,19 +37,20 @@ function parseJSON(response){
 
 function updateProfile(data){
   // Pick the variables values
-  var picture  = data.results[0].picture.medium;
-  var fullName = data.results[0].name.title + ' ' + 
-                 data.results[0].name.first + ' ' + 
-                 data.results[0].name.last;
-  var nic      = data.results[0].login.username;
-  var email    = data.results[0].email;
+  var getData  = data.results[0];
+  var picture  = getData.picture.medium;
+  var fullName = getData.name.title + ' ' + 
+                 getData.name.first + ' ' + 
+                 getData.name.last;
+  var nic      = getData.login.username;
+  var email    = getData.email;
 
   // Asign value to fields
-  UIDisplay.userImg.src = picture;
-  UIDisplay.userNic.innerText = nic;
+  UIDisplay.userImg.src         = picture;
+  UIDisplay.userNic.innerText   = nic;
   UIDisplay.userEmail.innerText = email;
-  UIDisplay.userName.innerText = firstLetterToUpperCase(fullName);
-  UIDisplay.userCity.innerText = firstLetterToUpperCase(data.results[0].location.city);
+  UIDisplay.userName.innerText  = firstLetterToUpperCase(fullName);
+  UIDisplay.userCity.innerText  = firstLetterToUpperCase(data.results[0].location.city);
 }
 
 function printError(err){
