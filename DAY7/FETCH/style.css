@@ -1,0 +1,42 @@
+*, *:after, *:before{
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-family: sans-serif;
+}
+
+.title{
+  margin-bottom: 2rem;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  margin: auto;
+}
+
+.currencyRate{
+  display: flex;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+}
+.price{
+  flex-basis: 60%;
+}
+.currency{
+  flex-grow: 1;
+  text-align: right;
+}
+
+.btn{
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  background-color: #000;
+  color: #fff;
+  padding: 1.1rem 1.9rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
