@@ -1,0 +1,52 @@
+*,
+*:before,
+*:after{
+  margin:0;
+  padding:0;
+  box-sizing: inherit;
+}
+html{
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  margin: auto;
+}
+
+.title{
+  margin-bottom: 2rem;
+}
+
+.currencyRate{
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 900;
+
+}
+.price{
+  color: green;
+  position:relative;
+  flex-basis: 60%;
+}
+
+.currency{
+flex-grow: 1;
+text-align: right;
+}
+
+.btn {
+  display:block;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding: 1.1rem 1.8rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #000;
+  border-radius: 5px;
+}

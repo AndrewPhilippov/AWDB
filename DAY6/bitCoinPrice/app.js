@@ -1,4 +1,5 @@
-var priceSpan = document.querySelector('.price');
+var priceSpanUSD = document.querySelector('.priceUSD');
+var priceSpanRUB = document.querySelector('.priceRUB');
 var btn = document.querySelector('.btn');
 
 btn.addEventListener('click', function(){
@@ -7,12 +8,14 @@ btn.addEventListener('click', function(){
   XHR.onreadystatechange = function(){
     if(XHR.status == 200 && XHR.readyState == 4){
       var data = JSON.parse(XHR.responseText);
-      var price = data.bpi.USD.rate;
-      priceSpan.innerText = price;
+      var priceUSD = data.bpi.USD.rate;
+      var priceRUB = data.bpi.RUB.rate;
+      priceSpanUSD.innerText = priceUSD;
+      priceSpanRUB.innerText = priceRUB;
     }
   }
   
   // 'https://api.coindesk.com/v1/bpi/currentprice/RUB.json' - for prices in Rubles && change currency value in price variable
-  XHR.open('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
+  XHR.open('GET', 'https://api.coindesk.com/v1/bpi/currentprice/RUB.json');
   XHR.send();
 });

@@ -8,9 +8,16 @@
   <title>BitOk</title>
 </head>
 <body>
-  <h1 class="title">BitCoin current price is: <span class="price"></span></h1>
-  <button class='btn'>Refresh Data</button>
-
+  <div class="container">
+    <h1 class="title">BitCoin current price is:</h1>
+    <div class="currencyRate">
+        <p class="price priceUSD"></p><span class="currency"> USD</span>
+    </div>
+    <div class="currencyRate">
+        <p class="price priceRUB"></p><span class="currency"> RUB</span>
+    </div>
+    <button class='btn'>Refresh Data</button>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
