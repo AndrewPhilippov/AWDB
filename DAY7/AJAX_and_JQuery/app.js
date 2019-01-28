@@ -2,7 +2,7 @@ $('#btn').click(function(){
   $.ajax({
     method: 'GET',
     url: 'https://baconipsum.com/api/?type=meat-and-filler',
-    type: 'JSON'
+    dataType: 'JSON'
   })
   .done(addP)
   .fail(function(err){
