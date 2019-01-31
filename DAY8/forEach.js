@@ -1,3 +1,25 @@
+// Create forEach
+// *******************************
+
+function forEach(arr, callback){
+  for(var i = 0; i < arr.length; i++){
+    // Function without return keyword always returns undefined
+    callback(arr[i], i, arr);
+  }
+  // So no need to return anything
+}
+
+function halfValues(arr){
+  var newArr = [];
+  arr.forEach(el => {
+    newArr.push(el*2);
+  });
+  return newArr;
+}
+
+
+
+
 // Double each number in the array
 // *******************************
 
@@ -5,7 +27,7 @@ function doubleValues(arr){
   var newArr = [];
   arr.forEach(function(val){
     newArr.push(val * 2);
-  })
+  });
 return newArr;
 }
 
@@ -52,7 +74,7 @@ function vowelCount(str){
   var obj = {};
   var vowels = 'aeiou';
 
-  splitArr.forEach(function(letter){
+  splitArr.forEach(letter => {
     if(vowels.indexOf(letter) !== -1){
       if(letter in obj){
         obj[letter]++
@@ -60,6 +82,6 @@ function vowelCount(str){
         obj[letter] = 1;
       }
     }
-  })
+  });
   return obj;
 }
