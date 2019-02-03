@@ -57,6 +57,8 @@ Examples:
 function filterByValue(arr, key){
     return arr.filter(el => {
       return el[key];
+      // or 
+      // return val[key] !== undefined;
     });
 }
 
@@ -70,7 +72,7 @@ Examples:
 
 function find(arr, searchValue){
   var num = arr.filter(el => {
-      return (el === searchValue && el.index !== -1);
+      return el === searchValue;
     });
   return num[0];
 }
@@ -114,10 +116,9 @@ Examples:
 */
 
 function doubleOddNumbers(arr){
-  var numArr = arr.filter(num => {
+  return  arr.filter(num => {
     return num%2 !== 0;
-  });
-  return numArr.map(num => {
+  }).map(num => {
     return num *2;
   });
 }
