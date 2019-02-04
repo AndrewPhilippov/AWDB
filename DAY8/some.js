@@ -129,7 +129,9 @@ Examples:
 */
 
 function hasNoDuplicates(arr){
-    
+  return arr.every(el => {
+    return arr.indexOf(el) === arr.lastIndexOf(el);
+  });
 }
 
 
@@ -149,7 +151,12 @@ Examples:
 */
 
 function hasCertainKey(arr, key){
-    
+    return arr.every(el => {
+      // My solution
+      // return el.hasOwnProperty(key);
+      // Instrucyor solution
+      return key in el;
+    });
 }
 
 /*
@@ -169,5 +176,7 @@ Examples:
 */
 
 function hasCertainValue(arr, key, searchValue){
-    
+    return arr.every(el => {
+      return el[key] === searchValue;
+    });
 }
