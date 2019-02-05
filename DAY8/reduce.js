@@ -104,12 +104,21 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value){
-  return arr.reduce(function(accumulator, nextValue){
-    var obj = nextValue;
-    nextValue[key] = value;
-    accumulator.push(obj);
+  // MY SOLUTION
+  // ************
+  // return arr.reduce(function(accumulator, nextValue){
+  //   var obj = nextValue;
+  //   nextValue[key] = value;
+  //   accumulator.push(obj);
+  //   return accumulator;
+  // }, []);
+
+  // INSTRUCTOR SOLUTION
+  // *******************
+  return arr.reduce((accumulator, nextValue, index) => {
+    accumulator[index][key] = value;
     return accumulator;
-  }, []);
+  }, arr);
 }
 
 
@@ -135,6 +144,40 @@ Examples:
     partition(names, isLongerThanThreeCharacters) // [['Elie', 'Colt', 'Matt'], ['Tim']]
 */
 
-function partition(arr, callback){
+// *********************
+// MySolution  *********
+// *********************
 
+// function partition(arr, callback){
+//   var arrOne = [];
+//   var arrTwo = [];
+//   return arr.reduce(function(accumulator, nextValue){
+//      if(callback(nextValue)){
+//          arrOne.push(nextValue);
+//      } else {
+//          arrTwo.push(nextValue);
+//      }
+//      if(accumulator.indexOf(arrOne) === -1){
+//          accumulator.push(arrOne);
+//      } 
+//      if(accumulator.indexOf(arrTwo) === -1){
+//       accumulator.push(arrTwo);   
+//      }
+//      return accumulator;
+//   }, []);
+// }
+
+// *********************
+// INSTRUCTOR SOLUTION *
+// *********************
+
+function partition(arr, callback){
+  return arr.reduce((accumulator, nextValue) => {
+    if(callback(nextValue)){
+      accumulator[0].push(nextValue);
+    } else {
+      accumulator[1].push(nextValue);
+    }
+    return accumulator;
+  }, [[],[]]);
 }
