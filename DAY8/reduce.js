@@ -3,13 +3,13 @@
 // *********************
 
 var names = ['Tim', 'Matt', 'Colt', 'Ellie'];
-names.reduce(function(accumulator, nextValue){
+names.reduce(function (accumulator, nextValue) {
   return accumulator += ' ' + nextValue;
 }, 'The instructors are:'); // "The instructors are: Tim Matt Colt Ellie"
 
-var arr = [5,4,1,4,5];
-arr.reduce(function(accumulator, nextValue){
-  if(nextValue in accumulator){
+var arr = [5, 4, 1, 4, 5];
+arr.reduce(function (accumulator, nextValue) {
+  if (nextValue in accumulator) {
     accumulator[nextValue]++
   } else {
     accumulator[nextValue] = 1;
@@ -17,26 +17,32 @@ arr.reduce(function(accumulator, nextValue){
   return accumulator;
 }, {}); // {1: 1, 4: 2, 5: 2}
 
-function sumOddNumbers(arr){
-  return arr.reduce(function(accumulator, nextValue){
-    if(nextValue %2 !== 0){
+function sumOddNumbers(arr) {
+  return arr.reduce(function (accumulator, nextValue) {
+    if (nextValue % 2 !== 0) {
       accumulator += nextValue
     }
     return accumulator;
   }, 0);
 }
 
-sumOddNumbers([1,2,3,4,5]); // 9
+sumOddNumbers([1, 2, 3, 4, 5]); // 9
 
 // CREATE FULLNAME SAMPLE
-function createFullName(arr){
-  return arr.reduce(function(accumulator, nextValue){
+function createFullName(arr) {
+  return arr.reduce(function (accumulator, nextValue) {
     accumulator.push(nextValue.first + ' ' + nextValue.last);
     return accumulator;
   }, []);
 }
 
-createFullName([{first: 'Colt', last: 'Steele'}, {first: 'Matt', last: 'Lane'}]);
+createFullName([{
+  first: 'Colt',
+  last: 'Steele'
+}, {
+  first: 'Matt',
+  last: 'Lane'
+}]);
 
 
 
@@ -53,11 +59,11 @@ Examples:
     extractValue(arr,'name') // ['Elie', 'Tim', 'Matt', 'Colt']
 */
 
-function extractValue(arr, key){
-    return arr.reduce(function(accumulator, nextValue){
-      accumulator.push(nextValue[key]);
-      return accumulator;
-    }, []);
+function extractValue(arr, key) {
+  return arr.reduce(function (accumulator, nextValue) {
+    accumulator.push(nextValue[key]);
+    return accumulator;
+  }, []);
 }
 
 
@@ -72,13 +78,13 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 
-function vowelCount(str){
+function vowelCount(str) {
   var vowels = 'aeuio';
   var newArr = str.toLowerCase().split('');
 
-  return newArr.reduce(function(accumulator, nextValue){
-    if(vowels.indexOf(nextValue) !== -1 ){
-      if(nextValue in accumulator){
+  return newArr.reduce(function (accumulator, nextValue) {
+    if (vowels.indexOf(nextValue) !== -1) {
+      if (nextValue in accumulator) {
         accumulator[nextValue]++;
       } else {
         accumulator[nextValue] = 1;
@@ -103,7 +109,7 @@ Examples:
        ]
 */
 
-function addKeyAndValue(arr, key, value){
+function addKeyAndValue(arr, key, value) {
   // MY SOLUTION
   // ************
   // return arr.reduce(function(accumulator, nextValue){
@@ -171,13 +177,16 @@ Examples:
 // INSTRUCTOR SOLUTION *
 // *********************
 
-function partition(arr, callback){
+function partition(arr, callback) {
   return arr.reduce((accumulator, nextValue) => {
-    if(callback(nextValue)){
+    if (callback(nextValue)) {
       accumulator[0].push(nextValue);
     } else {
       accumulator[1].push(nextValue);
     }
     return accumulator;
-  }, [[],[]]);
+  }, [
+    [],
+    []
+  ]);
 }
