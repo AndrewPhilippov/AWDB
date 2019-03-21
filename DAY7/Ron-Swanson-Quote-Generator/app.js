@@ -38,7 +38,7 @@ function parseIt(res){
   return res.json();
 }
 function showIt(data){
-  displayQuote.innerText = data;
+  displayQuote.innerText = data[0];
 }
 function handleError(err){
   console.log('Error accured: ' + err);
@@ -55,7 +55,7 @@ function handleInitialError(res){
 $('#jquery').click(function(){
   $.getJSON(url)
     .done(function(data){
-      $('#quote').text(data);
+      $('#quote').text(data[0]);
     })
     .fail(function(err){
       console.log(err);
@@ -67,7 +67,7 @@ $('#jquery').click(function(){
 Button.axios.addEventListener('click', function(){
   axios.get(url)
   .then(function(res){
-    displayQuote.innerText = res.data;
+    displayQuote.innerText = res.data[0];
   })
   .catch(handleErrors);
 });
