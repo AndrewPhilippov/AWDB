@@ -48,6 +48,10 @@ function smallestValue() {
 function smallestValue() {
     return Math.min(...arguments);
 }
+// Instructor soluteion
+function smallestValue(...args) {
+    return Math.min(args);
+}
 
 /* 
 Write a function called placeInMiddle which accepts two parameters, an array and another array. This function should return the first array with all of the values in the second array placed in the middle of the first array.
@@ -66,6 +70,13 @@ function placeInMiddle(arr, vals) {
     return [...firstHalf, ...vals, ...secondHalf];
 }
 
+// Instructor solution
+function placeInMiddle(arr, vals) {
+    let mid = Math.floor(arr.length / 2);
+    arr.slice(mid, 0, ...vals);
+    return arr;
+}
+
 /* 
 Write a function called joinArrays which accepts a variable number of parameters (you can assume that each argument to this function will be an array) and returns an array of all of the parameters concatenated together
 
@@ -81,6 +92,11 @@ Examples:
 function joinArrays() {
     var oneArr = [...arguments];
     return oneArr.reduce((acc, next) => [...acc, ...next]);
+}
+
+// Instructor solution
+function joinArrays(...args) {
+    return args.reduce((acc, next) => acc.concat(next), []);
 }
 
 /* 
@@ -103,6 +119,13 @@ function sumEvenArgs() {
     return [...arguments].reduce((acc, next) => {
         return next % 2 === 0 ? acc + next : acc;
     }, 0);
+}
+
+// Instructor solution
+function sumEvenArgs(...args) {
+    args.reduce((acc, next) => {
+        return next % 2 === 0 ? acc + next : acc;
+    }, 0)
 }
 
 /* 
@@ -136,8 +159,11 @@ Examples:
 */
 
 
-function flip(fn, thisArg) {
-
+function flip(fn, thisArg, ...outerArgs) {
+    return function (...innerArgs) {
+        let allArgs = outerArgs.concat(innerArgs).slice(0, fn.length);
+        return fn.apply(thisArg, allArgs.reverse())
+    }
 }
 
 /* 
@@ -172,6 +198,8 @@ Examples:
 
 */
 
-function bind(fn, thisArg) {
-
+function bind(fn, thisArg, ...outerArgs) {
+    return function (...innerArgs) {
+        return fn.apply(thisArg, [...outerArgs, ...innerArgs]);
+    }
 }
