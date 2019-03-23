@@ -60,7 +60,10 @@ Examples:
 */
 
 function placeInMiddle(arr, vals) {
-
+    var halfIndex = arr.length / 2;
+    var firstHalf = arr.slice(0, halfIndex);
+    var secondHalf = arr.slice(halfIndex);
+    return [...firstHalf, ...vals, ...secondHalf];
 }
 
 /* 
@@ -76,7 +79,8 @@ Examples:
 */
 
 function joinArrays() {
-
+    var oneArr = [...arguments];
+    return oneArr.reduce((acc, next) => [...acc, ...next]);
 }
 
 /* 
@@ -89,7 +93,16 @@ Examples:
 */
 
 function sumEvenArgs() {
+    var total = 0;
+    var argsArr = [...arguments].filter(el => el % 2 === 0).map(evenNum => total += evenNum);
+    return total;
+}
 
+// Swalla-la-la ES6 + reduce === sexy)))
+function sumEvenArgs() {
+    return [...arguments].reduce((acc, next) => {
+        return next % 2 === 0 ? acc + next : acc;
+    }, 0);
 }
 
 /* 
