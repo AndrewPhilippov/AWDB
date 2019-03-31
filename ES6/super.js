@@ -66,16 +66,22 @@ class Vehicle {
 // 4 - Create a class for a Car. Each object created from the Car function should also have a make, model, and year and a property called numWheels which should be 4. The Car prototype should inherit all of the methods from the Vehicle prototype
 
 class Car extends Vehicle {
-    constructor(make, model, year, numWheels) {
+    constructor(make, model, year) {
         super(make, model, year);
+        this.numWheels = 4
+    }
+}
+class Car extends Vehicle {
+    constructor() {
+        super(...arguments);
         this.numWheels = 4
     }
 }
 // 5 - Create a class for a Motorcycle. Each object created from the Motorcycle function should also have a make, model, and year and a property called numWheels which should be 2. The Motorcycle prototype should inherit all of the methods from the Vehicle prototype
 
 class Motorcycle extends Vehicle {
-    constructor(make, model, year, numWheels) {
-        super(make, model, year);
+    constructor() {
+        super(...arguments);
         this.numWheels = 2
     }
 }
