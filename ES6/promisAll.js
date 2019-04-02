@@ -57,7 +57,7 @@ starWarsString(1).then(function (data) {
 // "Luke Skywalker"
 function starWarsString(id) {
     var str = '';
-    return $.getJSON(`https://swapi.co/api/people/${id}/`)
+    return $.getJSON(`http://swapi.co/api/people/${id}/`)
         .then(function (data) {
             str += `${data.name} is featured in `;
             var filmData = data.films[0].replace('http', 'https');
