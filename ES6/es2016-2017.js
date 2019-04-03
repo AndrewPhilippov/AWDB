@@ -192,6 +192,15 @@ starWarsString(1).then(function (data) {
 /*
 Bonus 1 -  Using the data from the previous AJAX call above, make another AJAX request to get the first film that character is featured in and return a promise that when resolved will console.log the name of the character and the film they are featured in 
 */
+async function starWarsString(id) {
+    let str = '';
+    let results = await $.getJSON(`https://swapi.co/api/people/${id}/`);
+    str += `${results.name} is featured in `;
+    var movies = results.films[0]
+    let moreResults = await $.getJSON(movies);
+    str += `${moreResults.title}, directed by ${moreResults.director} `;
+    return str;
+}
 
 starWarsString(1).then(function (data) {
     console.log(data)
@@ -208,3 +217,48 @@ starWarsString(1).then(function (data) {
 })
 
 // "Luke Skywalker is featured in The Empire Strikes Back, directed by Irvin Kershner and it takes place on Hoth"
+
+
+// Object rest
+var instructor = {
+    first: "Ellie",
+    last: "Schoppik",
+    job: "Instructor",
+    numSiblings: 3
+};
+var {
+    first,
+    last,
+    ...data
+} = instructor;
+first; // "Ellie"
+last; // "Schoppik"
+data; // {job: "Instructor", numSiblings: 3}
+
+// Object spread
+var instructor = {
+    first: "Ellie",
+    last: "Schoppik",
+    job: "Instructor"
+}
+var instructor2 = {
+    ...instructor,
+    first: "Tim",
+    last: "Garcia"
+};
+// great for creating objects starting from default values. and is a more concise alternative to Object.assign
+
+var defaults = {
+    job: "Instructor",
+    ownsCat: true,
+    ownsDog: true
+};
+var matt = {
+    ...defaults,
+    ownsCat: false
+};
+var colt = {
+    ...defaults,
+    ownsDog: false
+};
+// Quite common in React and Redux
