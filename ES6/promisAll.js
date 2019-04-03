@@ -57,15 +57,15 @@ starWarsString(1).then(function (data) {
 // "Luke Skywalker"
 function starWarsString(id) {
     var str = '';
-    return $.getJSON(`http://swapi.co/api/people/${id}/`)
+    return $.getJSON(`https://swapi.co/api/people/${id}/`)
         .then(function (data) {
             str += `${data.name} is featured in `;
-            var filmData = data.films[0].replace('http', 'https');
+            var filmData = data.films[0];
             return $.getJSON(filmData);
         })
         .then(function (res) {
             str += `${res.title}, directed by ${res.director} `;
-            let planetData = res.palnets[0].replace('http', 'https');
+            let planetData = res.planets[0];
             return $.getJSON(planetData);
         })
         .then(function (res) {
