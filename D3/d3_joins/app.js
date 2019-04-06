@@ -25,6 +25,20 @@ var quotes = [{
   rating: "G"
 }];
 
+var newQuotes = [
+    {
+        quote: "Houston, we have a problem.",
+        movie: "Apollo 13",
+        year: 1995,
+        rating: "PG-13"
+    }, {
+        quote: "Gentlemen, you can't fight in here! This is the war room!",
+        movie: "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+        year: 1964,
+        rating: "PG"
+    }
+];
+
 var colors = {
   "G": "3Cff00",
   "PG": "#f9f000",
@@ -60,4 +74,46 @@ var nonRQuotes = quotes.filter(movie => movie.rating !== "R");
 d3.selectAll("li")
     .data(nonRQuotes, d => d.quote)
     .exit()
-    .remove()
+    .remove();
+
+var removeBtn = d3.select("#remove");
+
+var add = d3.select("#add");
+
+add.on("click", function () {
+    quotes = quotes.concat(newQuotes);
+    var listItems = d3.select("#quotes");
+
+        listItems
+        .selectAll('li')
+        .data(quotes)
+        .enter()
+        .append('li')
+            .text(d =>`"${d.quote}" quote - is from the movie "${d.movie}". It was filmed in ${d.year} and got rating ${d.rating}`)
+        .style("margin", "20px")
+        .style("padding", "20px")
+        .style("width", d => sizes[d.rating])
+        .style("height", d => sizes[d.rating])
+        .style("font-size", d => d.quote.length < 25 ? "2em" : "1.5em")
+        .style("background-color", d => colors[d.rating])
+        .style("border-radius", "50%")
+        .style("display", "flex")
+        .style("align-items", "center");
+
+    add.remove();
+})
+
+removeBtn.on('click', function() {
+    var nonRQuotes = quotes.filter(function(movie) {
+        return movie.rating !== 'R';
+    });
+
+    d3.selectAll("li")
+        .data(nonRQuotes, function(d) {
+            return d.quote;
+        })
+        .exit()
+        .remove();
+
+    removeBtn.remove();
+});
