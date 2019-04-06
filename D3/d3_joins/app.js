@@ -29,7 +29,7 @@ var colors = {
   "G": "3Cff00",
   "PG": "#f9f000",
   "PG-13": "#ff9000",
-  "R": "ff0000"
+  "R": "#ff0000"
 };
 
 var sizes = {
@@ -37,15 +37,15 @@ var sizes = {
   "PG": "500px",
   "PG-13": "400px",
   "R": "300px"
-}
+};
 
 d3.select('#quotes')
-  .style("list-style", "none")
+    .style("list-style", "none")
   .selectAll("li")
   .data(quotes)
   .enter()
   .append('li')
-  .text(d => `"${d.quote}" quote - is from the movie "${d.movie}". It was filmed in ${d.year} and got rating ${d.rating}`)
+    .text(d => `"${d.quote}" quote - is from the movie "${d.movie}". It was filmed in ${d.year} and got rating ${d.rating}`)
   .style("margin", "20px")
   .style("padding", "20px")
   .style("width", d => sizes[d.rating])
@@ -55,3 +55,9 @@ d3.select('#quotes')
   .style("border-radius", "50%")
   .style("display", "flex")
   .style("align-items", "center");
+
+var nonRQuotes = quotes.filter(movie => movie.rating !== "R");
+d3.selectAll("li")
+    .data(nonRQuotes, d => d.quote)
+    .exit()
+    .remove()
