@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>D3 and SVG</title>
+</head>
+<body>
+<!-- LINE ELEMENT -->
+<h2>line</h2>
+    <svg id="icon"
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+        <g
+            stroke-width="5px"
+            stroke="blue">
+            <line
+                    id="l1"
+                    x1="100" y1="100" x2="700" y2="350">
+            </line>
+            <line
+                    id="l2"
+                    x1="100" y1="350" x2="700" y2="100"
+            </line>
+        </g>
+    </svg>
+<!-- RECTANGLE *****
+x - x-coordinate of upper-left corner
+y - y-coordinate of upper-left corner
+rx - round corners in x direction
+ry - round corners in y direction
+width - width of rectangle
+height - height of rectangle
+stroke - border color
+stroke-width - border thickness
+fill - interior color
+-->
+<h2>Rectangle</h2>
+<svg
+        id="rect"
+        version="1.1"
+        baseProfile="full"
+        xmlns="http://www.w3.org/2000/svg">
+    <rect x="50"
+          y="50"
+          width="300"
+          height="200"
+          fill="#ffc107"
+          stroke="#2196f3"
+          stroke-width="8px" ry="500" rx="50"></rect>
+    <rect x="100"
+          y="200"
+          width="300"
+          height="200"
+          fill="#e91e63"
+          stroke="#795548"
+          stroke-width="8px" ry="50" rx="500"></rect>
+</svg>
+
+<!-- POLYGONS *****
+Polygon attributes are space separated list of points, representing vertices of the polygon
+All rectangles are polygons, but not all polygons are rectangles
+Below is the refactoring of rectangles to polygons
+-->
+<h2>Refactoring rectangles to polygons</h2>
+<svg
+        id="rect-polygon"
+        version="1.1"
+        baseProfile="full"
+        xmlns="http://www.w3.org/2000/svg">
+    <polygon
+            points="50,50 350,50 350,250 50,250"
+            fill="#ffc107"
+            stroke="#2196f3"
+            stroke-width="8px" rx="50"></polygon>
+    <polygon
+            points="100,200 400,200 400,500 100,500"
+          fill="#e91e63"
+          stroke="#795548"
+          stroke-width="8px" ry="50"></polygon>
+</svg>
+<h2>Star polygon</h2>
+<svg
+        id="star"
+        version="1.1"
+        baseProfile="full"
+        xmlns="http://www.w3.org/2000/svg">
+    <polygon
+            points="400,21.5 450.5,177 614,177 481.5,273 532.5,428.5 400,332.5 267.5,428.5 318.5,273 186,177 349.5,177"
+            fill="yellow"
+            stroke="black"
+            stroke-width="8px" rx="50"></polygon>
+    <circle cx="400" cy="250" r="60" fill="black"></circle>
+    <circle cx="400" cy="235" r="65" fill="yellow"></circle>
+    <circle cx="370" cy="210" r="10" fill="black"></circle>
+    <circle cx="430" cy="210" r="10" fill="black"></circle>
+</svg>
+<!-- CIRCLE *****
+cx - x-coordinate of it's center
+cy - y-coordinate of it's center
+r - radius of circle
+ -->
+
+    <script src="app.js"></script>
+</body>
+</html>

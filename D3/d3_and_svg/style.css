@@ -1,0 +1,8 @@
+svg {
+    border: 1px solid black;
+    width: 800px;
+    height: 500px;
+}
+line{
+    transition: all .5s;
+}
