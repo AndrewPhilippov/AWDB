@@ -94,16 +94,136 @@ Below is the refactoring of rectangles to polygons
             fill="yellow"
             stroke="black"
             stroke-width="8px" rx="50"></polygon>
-    <circle cx="400" cy="250" r="60" fill="black"></circle>
-    <circle cx="400" cy="235" r="65" fill="yellow"></circle>
-    <circle cx="370" cy="210" r="10" fill="black"></circle>
-    <circle cx="430" cy="210" r="10" fill="black"></circle>
-</svg>
 <!-- CIRCLE *****
 cx - x-coordinate of it's center
 cy - y-coordinate of it's center
 r - radius of circle
  -->
+    <circle cx="400" cy="250" r="60" fill="black"></circle>
+    <circle cx="400" cy="235" r="65" fill="yellow"></circle>
+    <circle cx="370" cy="210" r="10" fill="black"></circle>
+    <circle cx="430" cy="210" r="10" fill="black"></circle>
+
+<!-- TEXT *****
+x - x-coordinate
+y - y-coordinate
+
+To center text we can use dx and dy
+dx - shift on x-axis
+dy - shift on y-axis
+-->
+    <text x="400" y="430"
+          text-anchor="middle"
+          font-size="1.5em"
+          font-family="sans-serif"
+          fill="white"
+          stroke-width="1px"
+          stroke="black" transform="rotate(-10 400,430)">Starry Starry SVG</text>
+</svg>
+<h2>Path</h2>
+<svg
+        id="triangle"
+        version="1.1"
+        baseProfile="full"
+        xmlns="http://www.w3.org/2000/svg">
+<!-- PATH *****
+d - Attribute commands
+M - move
+    Move command
+    - syntax: MX Y
+    moves the cursor to position X Y
+    doesn't draw anything
+
+L - line
+    Line command
+    - syntax: LX Y
+    draws a line from the cursor's current position
+    the line will end at position X, Y
+    can be chained together to draw multiple line segment
+
+Z - close path
+    Z/z close the path with a line
+    H/h - draw a horizontal line
+    V/v - draw a vertical line
+
+PATH curve commands *****
+Q - quadratic bezier curve
+    Q cx cy, x y        cx cy     |       x y
+                    control point | destination point
+C - cubic bezier curve
+    needs one more point (cx cy) to curve more
+    C cx1 cy1, cx2 cy2, x y
+A - circular arc
+    There are 7 ...!!! values we have to pass to arc
+    A   rx  |     ry |      rotate | largeArc | sweep | x | y
+     x-radius | y-radius | * ... * | ... | * ... * | destination
+
+
+
+Uppercase letters VS Lowercase letters
+UPPERCASE X Y - X and Y represent the location you want to go to
+lowercase X Y - X and Y represent how far you want to go from your current position
+-->
+    <path
+            d="
+                M 400 100
+                L 500 300
+                L 300 300
+                L 400 100"
+            stroke="purple" stroke-width="5px" stroke-linecap="round">
+    </path>
+
+<!-- SAME TRIANGLE WITH LOWERCASE 'l' *****
+    <path
+            d="
+                m 400 100
+                l 100 200
+                l -200 0
+                l 100 -200"
+            stroke="purple" stroke-width="5px" stroke-linecap="round">
+    </path>
+-->
+<!-- SAME TRIANGLE shorter *****
+    <path
+            d="
+                m 400 100
+                l 100 200
+                h-200
+                z"
+            stroke="purple" stroke-width="5px" stroke-linecap="round">
+    </path>
+-->
+</svg>
+<h2>Curves</h2>
+<svg
+        id="curves"
+        version="1.1"
+        baseProfile="full"
+        xmlns="http://www.w3.org/2000/svg">
+    <g
+            fill="none"
+            stroke-width="10px">
+        <path d="M0 225 C 200 450 400 0 800 125" stroke="red"></path>
+        <path d="M20 325 C 600 450 400 0 800 225" stroke="yellow"></path>
+        <path d="M100 100 Q70 20 700 350" stroke="blue"></path>
+    </g>
+</svg>
+<h2>Arc curve</h2>
+<svg
+        id="arc"
+        version="1.1"
+        baseProfile="full"
+        xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <path d="M300 250 A100 100 0 1 0 480 300" fill="green"></path>
+        <path d="M300 250 A100 100 0 1 1 480 300" fill="blue"></path>
+        <path d="M300 250 A100 100 0 0 0 480 300" fill="red"></path>
+        <path d="M300 250 A100 100 0 0 1 480 300" fill="yellow"></path>
+        <circle cx="300" cy="250" r="5"></circle>
+        <circle cx="480" cy="300" r="5"></circle>
+    </g>
+</svg>
+
 
     <script src="app.js"></script>
 </body>
