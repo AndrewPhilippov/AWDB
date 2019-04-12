@@ -4,6 +4,6 @@ svg {
 }
 
 .tick line{
-  color: #ccc;
+  stroke: #ccc;
   stroke-dasharray: 10,5;
 }
