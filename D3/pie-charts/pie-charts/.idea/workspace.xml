@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6755f571-8454-4ee5-96e5-be49f0d497d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-    </list>
+    <list default="true" id="6755f571-8454-4ee5-96e5-be49f0d497d9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -71,7 +68,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pie-chart-exersise" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1555303392008</updated>
       <workItem from="1555303393312" duration="2080000" />
-      <workItem from="1555388126569" duration="4641000" />
+      <workItem from="1555388126569" duration="5078000" />
     </task>
     <task id="LOCAL-00001" summary="Working on pieCharts. Have to fix arc padding problem">
       <created>1555392223977</created>
@@ -113,15 +110,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555392223978</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Arc padding problem fixed.">
+      <created>1555473824271</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555473824271</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6721000" />
+    <option name="totallyTimeSpent" value="7158000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -147,7 +150,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working on pieCharts. Have to fix arc padding problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on pieCharts. Have to fix arc padding problem" />
+    <MESSAGE value="Arc padding problem fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Arc padding problem fixed." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_pie-charts-continued.zip/d3-pie-chart/app.js">
