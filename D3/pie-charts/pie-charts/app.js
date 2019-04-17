@@ -45,10 +45,11 @@ function makeGraph(year){
     const path = d3.arc()
         .outerRadius(width / 2 - 10)
         .innerRadius(width / 4)
-        .padAngle(.02);
+        .padAngle(.02)
+        .cornerRadius(5);
 
     const update = d3.select('.chart')
-        .selectAll('.chart')
+        .selectAll('.arc')
         .data(arcs);
     update
         .exit()
