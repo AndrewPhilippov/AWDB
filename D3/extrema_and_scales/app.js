@@ -1,14 +1,14 @@
 // var minYear = birthData[0].year;
-var minYear = d3.min(birthData, d => d.year);
-// var maxYear = birthData[birthData.length - 1].year;
-var maxYear = d3.max(birthData, d => d.year);
-var width = 600;
-var height = 600;
-var barPadding = 10;
-var numBars = 12;
-var barWidth = width / numBars - barPadding;
-var maxBirths = d3.max(birthData, d => d.births);
-var yScale = d3.scaleLinear()
+const minYear = d3.min(birthData, d => d.year);
+// const maxYear = birthData[birthData.length - 1].year;
+const maxYear = d3.max(birthData, d => d.year);
+const width = 600;
+const height = 600;
+const barPadding = 10;
+const numBars = 12;
+const barWidth = width / numBars - barPadding;
+const maxBirths = d3.max(birthData, d => d.births);
+const yScale = d3.scaleLinear()
                 .domain([0, maxBirths])
                 .range([height, 0]);
 
@@ -38,6 +38,11 @@ d3.select("svg")
     })
     .attr("fill", "purple");
 
+const tooltip = d3.select("body")
+    .append("div")
+    .classed("tooltip", true)
+    .text("I am a tooltip");
+
 d3.select("svg")
     .append("text")
     .classed("title", true)
@@ -49,8 +54,12 @@ d3.select("svg")
 
 d3.select("input")
     .on("input", function() {
-      var year = +d3.event.target.value;
+      const year = +d3.event.target.value;
       d3.selectAll("rect")
+          .on("mousemove", showTooltip)
+          .on("touchstart", showTooltip)
+          .on("mouseout", hideTooltip)
+          .on("touchend", hideTooltip)
         .data(birthData.filter(function(d) {
           return d.year === year;
         }))
@@ -66,10 +75,11 @@ d3.select("input")
           })
           /*
           Interrupting works on stopping the existing event
-          */
+
           .on("interrupt", function(){
             console.log(`Interrapted. No longer updating to ${year} data`)
           })
+          */
           .on("end", function(d, i, nodes){
               if(i === nodes.length - 1){
                   d3.select(".title")
@@ -81,5 +91,20 @@ d3.select("input")
           })
           .attr("y", function(d) {
             return yScale(d.births);
-          });
+          })
     });
+
+function showTooltip(d){
+    tooltip
+        .style("opacity", 1)
+        .html(`
+                   <p>The year: ${d.year}</p>
+                   <p>Number of births in ${d.month}: ${d.births.toLocaleString()}</p>
+                  `)
+        .style("left", d3.event.x - tooltip.node().offsetWidth / 2 + "px")
+        .style("top", d3.event.y - 25 + "px")
+}
+function hideTooltip(){
+    tooltip
+        .style("opacity", 0)
+}
